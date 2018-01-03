@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+	<title>delete {{ restaurant.name }} </title>
+</head>
+<body>
+
+<form method="POST" action="{{url_for('deleteRestaurant', restaurant_id=restaurant_id)}}">
+	<h3>Are you sure to DELETE {{restaurant.name}}</h3>
+	<input type="submit" value="Delete">
+</form>
+
+<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
+</body>
+</html>
