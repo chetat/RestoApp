@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Restaurants</title>
+</head>
+<body>
+    <h2 class="text-center mt-3">Restaurants Available </h2>
+    <div class="container">
+        {%with messages = get_flashed_messages() %}
+            {% if messages%}
+                {%for message in messages%}
+
+                    <p class="message mr-5 ml-5 pb-3 pt-3 text-center"><strong>{{message}}</strong></p>
+
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <a type="button" href="{{url_for('restaurant.new')}}" class="btn btn-primary my-3">Add Restaurant</a>
+        <div class="row">
+        {% for resto in restaurants %}
+                 <div class="col-md-4 mb-3 col-xs-6">
+                    <!--Card-->
+                    <div class="card wow fadeIn" data-wow-delay="0.2s">
+
+                        <!--Card image-->
+                  
+
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title">{{resto.name}}</h4>
+                            <!--Text-->
+                            <p class="card-text"></p>
+                            <a class="btn btn-primary" href="{{url_for('restaurant.edit', restaurant_id=resto.id)}}">Edit</a>
+                            <a class="btn btn-danger" href="{{url_for('restaurant.delete', restaurant_id=resto.id)}}"> Delete </a>
+                            <a class="btn btn-info" href="{{url_for('menuItem.items', restaurant_id=resto.id)}}">View Menu</a>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+          </div>
+</div>
+    
+
+
+<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
+</body>
+</html>

@@ -43,6 +43,7 @@ enum34==1.1.6
 et-xmlfile==1.0.1
 feedparser==5.2.1
 Flask==0.12.2
+Flask-WTF==0.14.2
 functools32==3.2.3.post2
 fuse-python==0.2.1
 future==0.15.2
@@ -188,6 +189,7 @@ Werkzeug==0.14.1
 wfuzz==2.2.3
 Whoosh==2.7.4
 wrapt==1.10.11
+WTForms==2.1
 wxPython==3.0.2.0
 wxPython-common==3.0.2.0
 XlsxWriter==0.9.6

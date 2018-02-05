@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+	<title>New Menu Item for {{restaurant.name}}</title>
+</head>
+<body>
+	<h1>New {{restaurant.name}} Menu Item</h1>
+	<form method="POST" action="{{ url_for('menuItem.new', restaurant_id=restaurant_id)}}">
+		<input type="text" placeholder="Menu Item Name" name="name">
+		<input type="text" placeholder="Menu Item Description" name="description">
+		<input type="decimal" placeholder="Menu Item price" name="price">	
+		<input type="text" placeholder="Menu Item course" name="course">
+		<input type="submit" value="Add Item">
+	</form>
+<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
+</body>
+</html>
