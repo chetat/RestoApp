@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
 	<title>Edit {{restaurant.name}}</title>
-	
 </head>
+
 <body>
-<form method="POST" action="{{url_for('restaurant.edit', restaurant_id = restaurant_id)}}">
-	<input type="text" name="name" placeholder="{{restaurant.name}}">
-	<input type="submit" value="Update">
-</form>
-<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
+	<div class="form">
+		<div class="container">
+			<form method="POST" action="{{url_for('restaurant.edit', restaurant_id = restaurant_id)}}">
+				<div class="form-group row py-3">
+					<div class="col-sm-4">
+						<input class="form-control" type="text" name="name" placeholder="{{restaurant.name}}">
+						
+					</div>
+					<div class="col-sm-2">
+							<input type="submit" class="btn btn-secondary" value="Update">
+					</div>
+			
+				</div>
+			</form>
+			<a class="btn btn-primary" href="{{url_for('restaurant.restaurants')}}">back</a>
+		</div>
+	</div>
+	<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
 </body>
+
 </html>

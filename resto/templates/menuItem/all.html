@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
 	<title>{{restaurant.name}} Menu</title>
 </head>
+
 <body>
 	<div class="container">
 		<div>
-				<a  class="pt-5" href="{{url_for('restaurant.restaurants')}}">back</a>
-				<h2 class="text-center pt-5">{{restaurant.name}} Menu</h3>
-				<h3><a class="btn btn-primary mx-auto " href="{{url_for('menuItem.new', restaurant_id = restaurant_id)}}">New Item</a></h3>
-				
+			<a class="pt-5" href="{{url_for('restaurant.restaurants')}}">back</a>
+			<h2 class="text-center pt-5">{{restaurant.name}} Menu</h3>
+				<h3>
+					<a class="btn btn-primary mx-auto " href="{{url_for('menuItem.new', restaurant_id = restaurant_id)}}">New Item</a>
+				</h3>
+
 		</div>{% for item in items %}
-		<div class="row my-3" >
+		<div class="row my-3">
 			<!-- Menu Name and Price -->
-			<div class="col-sm-3">
-				
-					{{item.name}}
-
-			
-					{{item.price}}
-
+			<div class="col-sm-2">
+				{{item.name}} 
 			</div>
+			<div class="col-sm-1">
+					{{item.price}}
+				</div>
 			<div class="col-sm-2">
 				{{item.course}}
 			</div>
 			<!-- Menu Description -->
-			<div class="col-sm-6">
+			<div class="col-sm-4">
 				{{item.description}}
 			</div>
 			<!-- Options(Edit or Delete) -->
 
-			<div class="col-sm-1 col-xs-1">
+			<div class="col-sm-2">
 				<a class="btn btn-danger" href="{{url_for('menuItem.delete', restaurant_id = restaurant_id, item_id = item.id)}}">Delete</a>
 				<a class="btn btn-primary" href="{{url_for('menuItem.edit', restaurant_id = restaurant_id, item_id = item.id )}}">Edit </a>
-			</div>			
+
+			</div>
 		</div>
 		{% endfor %}
 	</div>
 
 	<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
 </body>
+
 </html>

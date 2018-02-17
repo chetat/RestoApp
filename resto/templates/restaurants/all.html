@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
     <title>Restaurants</title>
@@ -17,7 +20,7 @@
                 {%endfor%}
             {%endif%}
         {%endwith%}
-        <a type="button" href="{{url_for('restaurant.new')}}" class="btn btn-primary my-3">Add Restaurant</a>
+        <a href="{{url_for('restaurant.new')}}" class="btn btn-primary my-3">Add Restaurant</a>
         <div class="row">
         {% for resto in restaurants %}
                  <div class="col-md-4 mb-3 col-xs-6">
