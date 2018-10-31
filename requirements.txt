@@ -1,4 +1,3 @@
-adns-python==1.2.1
 anyjson==0.3.3
 argcomplete==1.8.1
 asn1crypto==0.24.0
