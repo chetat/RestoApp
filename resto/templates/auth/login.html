@@ -1,13 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
-	<title>{{restaurant.name}} Menu</title>
-</head>
-<body>
-    
-<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
-</body>
-</html>
+{% extends "layout.html" %} 
+{% block head %}
+{{ super() }}
+
+<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+{% endblock %} 
+
+{% block content %}
+<div id="signinButton">
+<span class="g-signin"
+data-scope="openid email"
+data-clientid="1043233327145-4tk21k4k31rnucs54ch85fk153gkm0qd.apps.googleusercontent.com"
+data-accesstype="offline"
+data-cookiepolicy="single_host_origin"
+data-callback="signInCallback"
+data-approvalprompt="force"
+>
+
+
+</span>
+</div>
+<div id="result">
+
+</div>
+<script>
+	function signInCallback(authResult){
+		if(authResult['code']){
+			$('#signinButton').attr('style','display: none');
+
+
+			$.ajax({
+				type:'POST',
+				url: '/gconnect?state={{STATE}}',
+				processData: false,
+				contentType: 'application/octet-stream; charset=utf-8',
+				data:authResult['code'],
+				success:(result)=>{
+					if (result) {
+						$('#result').html('Login Successful!<br>' + result +'<br>Redirecting');
+						setTimeout(()=>{
+							window.location.href = "/"
+						}, 3000);
+					} else{
+						$('#result').html('Failed to make a serverside call.'+
+						'Check your configuration console');
+					}
+				}
+			});
+		}
+	}
+</script>
+{% endblock %}

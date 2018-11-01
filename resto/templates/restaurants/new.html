@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
-	<title>Add New Restaurant</title>
-</head>
-<body>
-<h3>New Restaurant</h3>
+{% extends "layout.html" %} {% block title %} New restaurant {% endblock %} {% block content %}
+<div class="pt-3">
+		<h3 class="text-center">New Restaurant</h3>
+</div>
+
 <div class="container">
 	<form method="POST" action="{{url_for('restaurant.new')}}">
-	<label>
-		Name
-	</label>
-	<input type="text" name="name" class="input-control">
+		<div class="form-group row py-3">
+			<div class="col-sm-4">
 
-	<input type="submit" value="Add">
-</form>
-</div>
-<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
-</body>
-</html>
+				<input type="text" placeholder="Restaurant Name" name="name" class="form-control">
+			</div>
+			<div class="col-sm-2">
+				<input type="submit" class="btn btn-primary" value="Add">
+			</div>
+	</form>
+	</div>
+	{% endblock %}

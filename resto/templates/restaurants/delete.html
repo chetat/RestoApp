@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
-	<title>delete {{ restaurant.name }} </title>
-</head>
-
-<body>
-	<div class="container">
-		<form method="POST" action="{{url_for('restaurant.delete', restaurant_id=restaurant_id)}}">
-			<div class="form-group row">
-				<div class="col-sm-6">
-					<h3>Are you sure to DELETE {{restaurant.name}}</h3>
-					<input type="submit" class="btn btn-secondary" value="Delete">
-					<input type="submit" class="btn btn-secondary" value="back">
-				</div>
-
+ {% extends "layout.html" %} {% block title %} Delete {{restaurant.name}} {% endblock %} {% block content %}
+<div class="container">
+	<form method="POST" action="{{url_for('restaurant.delete', restaurant_id=restaurant_id)}}">
+		<div class="form-group row">
+			<div class="col-sm-6">
+				<h3>Are you sure to DELETE {{restaurant.name}}</h3>
+				<input type="submit" class="btn btn-secondary" value="Delete">
+				<input type="submit" class="btn btn-secondary" value="back">
 			</div>
 
-		</form>
+		</div>
 
-	</div>
+	</form>
 
+</div>
 
-	<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
-	<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
-</body>
-
-</html>
+{% endblock %}

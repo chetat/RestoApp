@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
-	<title>Edit {{restaurant.name}}</title>
-</head>
-
-<body>
+{% extends "layout.html" %}
+  {% block title %} 
+  Edit {{restaurant.name}} 
+  {% endblock %} 
+  {% block content %}
 	<div class="form">
 		<div class="container">
 			<form method="POST" action="{{url_for('restaurant.edit', restaurant_id = restaurant_id)}}">
@@ -26,8 +20,4 @@
 			<a class="btn btn-primary" href="{{url_for('restaurant.restaurants')}}">back</a>
 		</div>
 	</div>
-	<script type="text/javascript" src="{{url_for('static', filename='script/jquery.min.js') }}"></script>
-	<script type="text/javascript" src="{{url_for('static', filename='script/bootstrap.min.js') }}"></script>
-</body>
-
-</html>
+{% endblock %}
